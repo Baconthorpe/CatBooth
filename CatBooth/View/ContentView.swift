@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - Live UI
 struct ContentView<CatList: CatListViewModel>: View {
     let viewModel: ContentViewModel<CatList>
     var body: some View {
@@ -14,8 +15,9 @@ struct ContentView<CatList: CatListViewModel>: View {
     }
 }
 
+// MARK: - Preview UI
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ContentViewModel(catListViewModel: TestCatListViewModel()))
+        ContentView(viewModel: ContentViewModel(catListViewModel: PreviewCatListViewModel()))
     }
 }

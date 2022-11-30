@@ -7,26 +7,26 @@
 
 import SwiftUI
 
+// MARK: - Live UI
 struct CatListView<ViewModel: CatListViewModel>: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        Text("GOOP")
+        Text("CATS!")
+            .fontWeight(.heavy)
+            .dynamicTypeSize(.large)
         List(viewModel.listings) { listing in
-            Text("URL:")
-            Text(listing.url)
+            CatImageView(viewModel: CatImageViewModel(listing: listing))
+            Text("URL: \(listing.url)")
         }.onAppear {
             viewModel.refresh()
         }
-
-//        Grid {
-//            Image(uiImage: <#T##UIImage#>)
-//        }
     }
 }
 
+// MARK: - Preview UI
 struct CatListView_Previews: PreviewProvider {
     static var previews: some View {
-        CatListView(viewModel: TestCatListViewModel())
+        CatListView(viewModel: PreviewCatListViewModel())
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+// MARK: - Protocol
 protocol CatListViewModel: ObservableObject {
     var listings: [CatAPI.Listing] { get }
     var error: Error? { get }
@@ -15,37 +16,40 @@ protocol CatListViewModel: ObservableObject {
     func refresh()
 }
 
+// MARK: - Live Implementation
 class LiveCatListViewModel: CatListViewModel {
     @Published var listings: [CatAPI.Listing] = []
     @Published var error: Error?
 
-    var sink: AnyCancellable?
+    var listingSink: AnyCancellable?
+    var imageDataSink: AnyCancellable?
 
     // MARK: - Receiving Values
-    func receive(completion: Subscribers.Completion<Error>) {
+    private func receive(completion: Subscribers.Completion<Error>) {
         switch completion {
         case .finished: break
         case let .failure(error): self.error = error; print("ERROR: \(error)")
         }
     }
 
-    func receive(value: [CatAPI.Listing]) {
+    private func receive(value: [CatAPI.Listing]) {
         self.listings = value
     }
 
     // MARK: - Public Functions
-    func refresh() {
-        sink = CatAPI.listCats(count: 10)
+    public func refresh() {
+        listingSink = CatAPI.listCats(count: 10)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: receive, receiveValue: receive)
     }
 }
 
-class TestCatListViewModel: CatListViewModel {
+// MARK: - Test Implementation
+class PreviewCatListViewModel: CatListViewModel {
     @Published var listings: [CatAPI.Listing] = []
     @Published var error: Error?
 
-    func refresh() {
+    public func refresh() {
         listings = [
             CatAPI.Listing(id: "burp", url: "zurp", width: 1, height: 1),
             CatAPI.Listing(id: "durp", url: "wurp", width: 1, height: 1)

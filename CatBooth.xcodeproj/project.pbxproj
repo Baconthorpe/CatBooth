@@ -18,6 +18,8 @@
 		BA2FF3F3293666E500FD93D5 /* CatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2FF3F2293666E500FD93D5 /* CatListView.swift */; };
 		BA2FF3F62936679B00FD93D5 /* CatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2FF3F52936679B00FD93D5 /* CatListViewModel.swift */; };
 		BA2FF3F82936957100FD93D5 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2FF3F72936957100FD93D5 /* ContentViewModel.swift */; };
+		BA2FF3FA29369F3300FD93D5 /* CatImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2FF3F929369F3300FD93D5 /* CatImageView.swift */; };
+		BA2FF3FC29369FD100FD93D5 /* CatImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2FF3FB29369FD100FD93D5 /* CatImageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		BA2FF3F2293666E500FD93D5 /* CatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatListView.swift; sourceTree = "<group>"; };
 		BA2FF3F52936679B00FD93D5 /* CatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatListViewModel.swift; sourceTree = "<group>"; };
 		BA2FF3F72936957100FD93D5 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		BA2FF3F929369F3300FD93D5 /* CatImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageView.swift; sourceTree = "<group>"; };
+		BA2FF3FB29369FD100FD93D5 /* CatImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 				BA2FF3C4293555F200FD93D5 /* CatBoothApp.swift */,
 				BA2FF3C6293555F200FD93D5 /* ContentView.swift */,
 				BA2FF3F2293666E500FD93D5 /* CatListView.swift */,
+				BA2FF3F929369F3300FD93D5 /* CatImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			children = (
 				BA2FF3F52936679B00FD93D5 /* CatListViewModel.swift */,
 				BA2FF3F72936957100FD93D5 /* ContentViewModel.swift */,
+				BA2FF3FB29369FD100FD93D5 /* CatImageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -294,10 +300,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA2FF3F129355E0C00FD93D5 /* CatAPI.swift in Sources */,
+				BA2FF3FC29369FD100FD93D5 /* CatImageViewModel.swift in Sources */,
 				BA2FF3C7293555F200FD93D5 /* ContentView.swift in Sources */,
 				BA2FF3F82936957100FD93D5 /* ContentViewModel.swift in Sources */,
 				BA2FF3C5293555F200FD93D5 /* CatBoothApp.swift in Sources */,
 				BA2FF3F3293666E500FD93D5 /* CatListView.swift in Sources */,
+				BA2FF3FA29369F3300FD93D5 /* CatImageView.swift in Sources */,
 				BA2FF3F62936679B00FD93D5 /* CatListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

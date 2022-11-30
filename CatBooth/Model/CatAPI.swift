@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 enum CatAPI {
-
     // MARK: - Endpoints
     static let baseURLString = "https://api.thecatapi.com/v1"
 
@@ -45,7 +44,7 @@ enum CatAPI {
     }
 
     // MARK: - Calls
-    static func listCats(count: Int) -> AnyPublisher<[Listing], Error> {
+    public static func listCats(count: Int) -> AnyPublisher<[Listing], Error> {
         guard let url = URL(string: listEndpoint()) else { return Fail(error: CatError.invalidURL).eraseToAnyPublisher() }
 
         var urlRequest = URLRequest(url: url)
@@ -54,6 +53,14 @@ enum CatAPI {
         return URLSession.shared.dataTaskPublisher(for: urlRequest)
             .tryMap(checkStatusCode)
             .decode(type: [Listing].self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+
+    public static func getImageData(for listing: Listing) -> AnyPublisher<Data, Error> {
+        guard let url = URL(string: listing.url) else { return Fail(error: CatError.invalidURL).eraseToAnyPublisher() }
+
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .tryMap(checkStatusCode)
             .eraseToAnyPublisher()
     }
 }
